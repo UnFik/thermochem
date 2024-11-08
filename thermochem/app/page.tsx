@@ -22,7 +22,7 @@ export default function ThermoChem() {
             Kuasai Termokimia dengan Cara yang Menyenangkan dan Interaktif
           </h2>
           <p className="text-xl mb-8">
-            Thermochem adalah media pembelajaran berbasis website yang inovatif.
+            Thermochem adalah media pembelajaran berbasis desktop yang inovatif.
             Thermochem ini dirancang untuk membantu siswa SMA kelas 11 dalam
             mempelajari materi Termokimia dengan lebih interaktif dan
             menyenangkan sehingga pembelajaran dikelas akan menjadi lebih
