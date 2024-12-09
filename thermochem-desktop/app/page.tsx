@@ -26,8 +26,7 @@ const { useStepper } = defineStepper(
     title: "Instruction",
     description: "Instruction to play the game",
   },
-  { id: "information", title: "Information", description: "Information" },
-  { id: "objective", title: "Objective", description: "Objective" }
+  { id: "information", title: "Information", description: "Information" }
 );
 
 export default function Home() {
@@ -40,7 +39,6 @@ export default function Home() {
         introduce: () => <IntroductionSection />,
         instruction: () => <InstructionSection />,
         information: () => <InformationSection />,
-        objective: () => <ObjectiveSection />,
       })}
       {stepper.isFirst ? (
         <ShinyButton
@@ -67,7 +65,9 @@ export default function Home() {
               </button>
             )}
             <button
-              onClick={stepper.isLast ? () => router.push("/home") : stepper.next}
+              onClick={
+                stepper.isLast ? () => router.push("/home") : stepper.next
+              }
               className="absolute bottom-[45%] right-10"
             >
               <img

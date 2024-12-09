@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Flame, BookOpen, Target, List, ChevronRight } from "lucide-react";
+import { Flame, BookOpen, Target, List, ChevronRight, Download } from "lucide-react";
 import Image from "next/image";
 
 export default function ThermoChem() {
@@ -14,7 +14,7 @@ export default function ThermoChem() {
           Pembelajaran Termokimia dengan Gamifikasi
         </p>
       </header>
-
+    
       <main className="container mx-auto px-4 py-8">
         {/* Bagian Hero */}
         <section className="text-center mb-16">
@@ -28,12 +28,12 @@ export default function ThermoChem() {
             menyenangkan sehingga pembelajaran dikelas akan menjadi lebih
             efektif
           </p>
-          <a href="/materi">
+          <a href="/assets/Thermochem_0.1.0_x64-setup.exe" download>
             <Button
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white"
             >
-              Mulai Sekarang <ChevronRight className="ml-2" />
+              Download Aplikasi <Download className="ml-2" />
             </Button>
           </a>
         </section>
