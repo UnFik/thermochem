@@ -900,7 +900,7 @@ export default function Games() {
                 <button
                   className="absolute bottom-[24%] left-[42%]"
                   onClick={() => {
-                    stepper.goTo("question8");
+                    stepper.goTo("question9");
                     setAnswers([]);
                   }}
                 >
