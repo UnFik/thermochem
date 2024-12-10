@@ -57,9 +57,6 @@ const { useStepper } = defineStepper(
     id: "persamaan-termokimia",
   },
   {
-    id: "perubahan-entalpi",
-  },
-  {
     id: "jenis-perubahan-entalpi1",
   },
   {
@@ -159,9 +156,6 @@ export default function Home() {
         ),
         "persamaan-termokimia": () => (
           <div className="min-h-[100dvh] bg-[url('/assets/materi/persamaan-termokimia-page.png')] bg-cover bg-center" />
-        ),
-        "perubahan-entalpi": () => (
-          <div className="min-h-[100dvh] bg-[url('/assets/materi/perubahan-entalpi-page.png')] bg-cover bg-center" />
         ),
         "jenis-perubahan-entalpi1": () => (
           <div className="min-h-[100dvh] bg-[url('/assets/materi/jenis-perubahan-entalpi1-page.png')] bg-cover bg-center" />

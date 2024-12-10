@@ -4,6 +4,7 @@ import { defineStepper } from "@stepperize/react";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const { useStepper } = defineStepper(
   {
@@ -211,6 +212,12 @@ export default function Games() {
   const [currentAnswer, setCurrentAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
 
+  const handleNext = () => {
+    setShowResult(false);
+    setCurrentAnswer(null);
+    stepper.next();
+  };
+
   // Fungsi untuk menangani jawaban
   const handleAnswer = (questionNumber: number, selectedAnswer: string) => {
     const questionId = `question${questionNumber}`;
@@ -222,9 +229,8 @@ export default function Games() {
     setAnswers([...answers, { questionId, isCorrect, selectedAnswer }]);
 
     setTimeout(() => {
-      setShowResult(false);
-      setCurrentAnswer(null);
-      stepper.next();
+      // setShowResult(false);
+      // setCurrentAnswer(null);
     }, 500);
   };
 
@@ -257,15 +263,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level1/soal1-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -277,7 +285,7 @@ export default function Games() {
                   onClick={() => handleAnswer(1, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[0]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -299,15 +307,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level1/soal2-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -319,7 +329,7 @@ export default function Games() {
                   onClick={() => handleAnswer(2, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[1]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -341,15 +351,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level1/soal3-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -361,7 +373,7 @@ export default function Games() {
                   onClick={() => handleAnswer(3, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[2]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -383,15 +395,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level1/soal4-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -403,7 +417,7 @@ export default function Games() {
                   onClick={() => handleAnswer(4, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[3]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -471,15 +485,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level2/soal5-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -491,7 +507,7 @@ export default function Games() {
                   onClick={() => handleAnswer(5, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[4]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -513,15 +529,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level2/soal6-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -533,7 +551,7 @@ export default function Games() {
                   onClick={() => handleAnswer(6, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[5]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -560,15 +578,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level2/soal7-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -580,7 +600,7 @@ export default function Games() {
                   onClick={() => handleAnswer(7, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[6]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -602,15 +622,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level2/soal8-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -622,7 +644,7 @@ export default function Games() {
                   onClick={() => handleAnswer(8, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[7]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -690,15 +712,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level3/soal9-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -710,7 +734,7 @@ export default function Games() {
                   onClick={() => handleAnswer(9, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[8]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -732,15 +756,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level3/soal10-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -752,7 +778,7 @@ export default function Games() {
                   onClick={() => handleAnswer(10, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[9]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -774,15 +800,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level3/soal11-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -794,7 +822,7 @@ export default function Games() {
                   onClick={() => handleAnswer(11, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[10]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -816,15 +844,17 @@ export default function Games() {
           <div className="relative min-h-[100dvh] bg-[url('/assets/games/level3/soal12-page.png')] bg-cover bg-center">
             <button
               className="absolute top-5 right-3"
-              onClick={stepper.next}
-              disabled={showResult}
+              onClick={handleNext}
+              disabled={!showResult}
             >
               <img
                 src="/buttons/btn-book.png"
                 alt="book"
                 width={170}
                 height={170}
-                className="hover:scale-110 transition-all duration-300"
+                className={cn("hover:scale-110 transition-all duration-300", {
+                  "opacity-0": !showResult,
+                })}
               />
             </button>
             <div className="absolute bottom-[25%] right-[9%] flex flex-col gap-10 text-start">
@@ -836,7 +866,7 @@ export default function Games() {
                   onClick={() => handleAnswer(12, choice.id)}
                   className={`
                     ${
-                      showResult && currentAnswer === choice.id
+                      showResult
                         ? choice.id === answerLevel[11]
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -862,24 +892,10 @@ export default function Games() {
           if (correctCount >= 4) {
             return (
               <div className="relative min-h-[100dvh] bg-[url('/assets/games/final-page.png')] bg-cover bg-center">
-                <div className="absolute bottom-[25%] left-[35.5%] flex gap-40">
+                <div className="absolute bottom-[25%] left-[46.5%]">
                   <button
                     onClick={() => {
-                      stepper.next();
-                      setAnswers([]);
-                    }}
-                  >
-                    <img
-                      src="/buttons/btn-exit.png"
-                      alt="next"
-                      width={130}
-                      height={130}
-                      className="hover:scale-110 transition-all duration-300"
-                    />
-                  </button>
-                  <button
-                    onClick={() => {
-                      router.push("/");
+                      router.push("/home");
                       setAnswers([]);
                     }}
                   >
@@ -920,7 +936,9 @@ export default function Games() {
         <div className="">
           {stepper.current.id.includes("game") ? (
             <button
-              onClick={() => stepper.isFirst ? router.push("/home") : stepper.prev()}
+              onClick={() =>
+                stepper.isFirst ? router.push("/home") : stepper.prev()
+              }
               className="absolute bottom-[45%] left-10"
             >
               <img
